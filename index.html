@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluacion</title>
+    <script>
+        function sub() {
+            const nombre = document.getElementById('nombre').value;
+            const usuario = document.getElementById('usuario').value;
+            const contresena = document.getElementById('contreseña').value;
+
+            if (usuario === "Examen" && contresena === "12345") {
+                window.location.href = "home.html";
+                window.localStorage.setItem("nombreUsuario", nombre);
+            } else {
+                alert("Usuario o contreseña incorrectos");
+            }
+        }
+    </script>
+    <style>
+        :root {
+        --bg-dark: oklch(0.1 0 264);
+        --bg: oklch(0.2 0 264);
+        --bg-light: oklch(0.3 0 264);
+
+        --text: oklch(0.96 0 264);
+        --text-muted: oklch(0.76 0 264);
+
+        --shadow-small: inset 0 1px 2px #ffffff30, 0 1px 2px #00000030,
+          0 2px 4px #00000020;
+        --shadow-medium: inset 0 1px 2px #ffffff50, 0 2px 4px #00000030,
+          0 4px 8px #00000015;
+        --shadow-large: inset 0 1px 2px #ffffff70, 0 4px 6px #00000030,
+          0 6px 10px #00000015;
+      }
+      body{
+        background: var(--bg-dark);
+        color: var(--text);
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        padding: 20px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        height: 100vh;
+      }
+        form {
+        display: flex;
+        margin-top: 20px;
+        flex-direction: column;
+        background-color: var(--bg);
+        width: 20%;
+        padding: 60px;
+        box-shadow: var(--shadow-medium);
+        border-radius: 10px;
+        align-items: center;
+        }
+        label {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: var(--shadow-small);
+            background-color: var(--bg-light);
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--bg-light);
+            color: var(--text);
+            box-shadow: var(--shadow-small);
+            cursor: pointer;
+        }
+        button:hover {
+            box-shadow: var(--shadow-medium);
+            background-color: var(--bg);
+        }
+    </style>
+</head>
+<body>
+    <img src="logo.svg" alt="">
+    <form action="#">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" name="usuario" required>
+
+        <label for="contreseña">Contreseña</label>
+        <input type="password" id="contreseña" name="contreseña" required>
+
+        <button type="button" onclick="sub()">Ingresar</button>
+    </form>
+    
+</body>
+</html>

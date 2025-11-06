@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+    /* respuestas son : 1,1,3,1,1,1,2,2,1,3*/
+      :root {
+        --bg-dark: oklch(0.1 0 264);
+        --bg: oklch(0.2 0 264);
+        --bg-light: oklch(0.3 0 264);
+
+        --text: oklch(0.96 0 264);
+        --text-muted: oklch(0.76 0 264);
+
+        --shadow-small: inset 0 1px 2px #ffffff30, 0 1px 2px #00000030,
+          0 2px 4px #00000020;
+        --shadow-medium: inset 0 1px 2px #ffffff50, 0 2px 4px #00000030,
+          0 4px 8px #00000015;
+        --shadow-large: inset 0 1px 2px #ffffff70, 0 4px 6px #00000030,
+          0 6px 10px #00000015;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body{
+        background: var(--bg-dark);
+        color: var(--text);
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        padding: 32px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        min-height: 100vh;
+      }
+      .welcome-message {
+        text-align: center;
+      }
+      form {
+        display: flex;
+        margin-top: 20px;
+        flex-direction: column;
+        background-color: var(--bg);
+        width: 100%;
+        max-width: 720px;
+        padding: 34px;
+        box-shadow: var(--shadow-medium);
+        border-radius: 10px;
+        align-items: center;
+
+      }
+      .contePreguntas {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: var(--bg-light);
+        box-shadow: var(--shadow-medium);
+        border-radius: 12px;
+        width: 100%;
+        flex-direction: column;
+        display:flex;
+        gap: 18px;
+        padding: 40px;
+      }
+        label {
+            font-size: 18px;
+            line-height: 1.4;
+        }
+        select {
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: var(--shadow-small);
+            background-color: var(--bg);
+            color: var(--text-muted);
+            width: 100%;
+            max-width: 100%;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            box-shadow: var(--shadow-medium);
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            box-shadow: var(--shadow-medium);
+            background-color: var(--bg-light);
+        }
+        @media (max-width: 1024px) {
+          body {
+            padding: 28px;
+          }
+          .contePreguntas {
+            padding: 32px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          body {
+            padding: 24px;
+          }
+          form {
+            padding: 28px;
+            margin-top: 12px;
+          }
+          .contePreguntas {
+            padding: 28px;
+            gap: 16px;
+          }
+          label {
+            font-size: 16px;
+          }
+          button {
+            font-size: 15px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          body {
+            padding: 16px;
+          }
+          form {
+            padding: 24px;
+          }
+          .contePreguntas {
+            padding: 24px;
+            gap: 14px;
+          }
+          button {
+            padding: 12px;
+          }
+        }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <div class="welcome-message">
+        <h2>Bienvenido, <span id="nombreUsuario"></span>!</h2>
+        <script>
+          document.getElementById("nombreUsuario").textContent =
+            window.localStorage.getItem("nombreUsuario");
+        </script>
+      </div>
+      <div class="contePreguntas">
+        <label for="">1. Que tipo de lenguaje es html?</label>
+        <select name="" id="p1">
+            <option value="1">Lenguaje de programacion</option>
+            <option value="2">Lenguaje de etiquetas</option>
+            <option value="3">Lenguaje de diseño</option>
+        </select>
+        <label for="">2. Para que usamos CSS? </label>
+        <select name="" id="p2">
+            <option value="1">Estilos</option>
+            <option value="2">Comportamiento</option>
+            <option value="3">Comer</option>
+        </select>
+        <label for="">3. Que tipo de lenguaje es CSS</label>
+        <select name="" id="p3">
+            <option value="1">Lenguaje de programacion</option>
+            <option value="2">Lenguaje de etiquetas</option>
+            <option value="3">Lenguaje de diseño</option>
+        </select>
+        <label for="">4. Que tipo de lenguaje es JavaScript</label>
+        <select name="" id="p4">
+            <option value="1">Lenguaje de programacion</option>
+            <option value="2">Lenguaje de etiquetas</option>
+            <option value="3">Lenguaje de diseño</option>
+        </select>
+        <label for="">5.Que tipo de BD es MySQL</label>
+        <select name="" id="p5">
+            <option value="1">Relacional</option>
+            <option value="2">No Relacional</option>
+            <option value="3">Ninguna de las anteriores</option>
+        </select>
+        <label for="">6.Que dicen las siglas html</label>
+        <select name="" id="p6">
+            <option value="1">HyperText Markup Language </option>
+            <option value="2">hola tio manolo loco</option>
+            <option value="3">HiperText Makeup Language</option>
+        </select>
+        <label for="">7. Se puede conectar a la bd con html?</label>
+        <select name="" id="p7">
+            <option value="1">Si</option>
+            <option value="2">No</option>
+            <option value="3">Parcialmente</option>
+        </select>
+        <label for="">8.Como se declara una variable constante en JS</label>
+        <select name="" id="p8">
+            <option value="1">let</option>
+            <option value="2">const</option>
+            <option value="3">var</option>
+        </select>
+        <label for="">9.Como declaras un array en JS</label>
+        <select name="" id="p9">
+            <option value="1">let array = [""]</option>
+            <option value="2">array = []</option>
+            <option value="3">[]</option>
+        </select>
+        <label for="">10. Js y java son iguales?</label>
+        <select name="" id="p10">
+            <option value="1">cr7 el goat</option>
+            <option value="2">Si</option>
+            <option value="3">No</option>
+        </select>
+        <button type="button">Ver Ressultado</button>
+      </div>
+    </form>
+    <script>
+        const boton = document.querySelector("button");
+        boton.addEventListener("click", () => {
+            let score = 0;
+            const respuestas = {
+                p1: "2",
+                p2: "1",
+                p3: "3",
+                p4: "1",
+                p5: "1",
+                p6: "1",
+                p7: "2",
+                p8: "2",
+                p9: "1",
+                p10: "3",
+            }
+            for (let i = 1; i <= 10; i++) {
+                const respuestaUsuario = document.getElementById(`p${i}`).value;
+                if (respuestaUsuario === respuestas[`p${i}`]) {
+                    score++;
+                }
+            }
+            alert(`Tu puntuacion es: ${score} de 10`);
+        });
+        
+    </script>
+  </body>
+  
+</html>
