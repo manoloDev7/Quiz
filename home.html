@@ -140,6 +140,15 @@
             padding: 12px;
           }
         }
+        .res{
+            margin-top: 40px;
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-medium);
+            width: 50%;
+            text-align: center;
+        }
     </style>
   </head>
   <body>
@@ -215,9 +224,14 @@
         <button type="button">Ver Resultado</button>
       </div>
     </form>
+
+
+    
     <script>
         const boton = document.querySelector("button");
+        const form = document.querySelector("form");
         boton.addEventListener("click", () => {
+            form.style.display = 'none';
             let score = 0;
             const respuestas = {
                 p1: "2",
@@ -237,7 +251,11 @@
                     score++;
                 }
             }
-            alert(`Tu puntuacion es: ${score} de 10`);
+            document.body.innerHTML += `<div class="res"  text-align:center;"><h2>Tu puntuacion es: ${score} de 10</h2><h2>${score >= 7 ? 'Felicidades, has aprobado el examen!' : 'Lo siento, no has aprobado el examen.'}</h2>
+            <div style="margin-top:20px;"><button onclick="location.reload()">Reintentar Examen</button>
+            </div>`;
+
+            form.reset();
         });
         
     </script>
